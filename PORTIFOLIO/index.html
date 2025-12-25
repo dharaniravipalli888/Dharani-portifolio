@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravipalli Dharani - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: #f7fafc;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 6px solid white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            object-fit: cover;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .profile-image-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 6px solid white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .contact-info-hero {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item-hero {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            background: white;
+            scroll-margin-top: 80px;
+        }
+
+        .section:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .skill-card h3 {
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.8rem 0;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-card li:hover {
+            color: #667eea;
+            padding-left: 10px;
+        }
+
+        /* Education Section */
+        .education-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .education-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
+            margin-left: 80px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -65px;
+            top: 35px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .education-item .year {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .education-item h3 {
+            color: #1a202c;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .education-item .institution {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .education-item .grade {
+            color: #48bb78;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.25);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-card h3 {
+            color: #1a202c;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            color: #667eea;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #667eea30;
+        }
+
+        /* Internships Section */
+        .internships-grid {
+            display: grid;
+            gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .internship-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .internship-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .internship-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .internship-card h3 {
+            color: #1a202c;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .internship-card .company {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .internship-card .year {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .internship-card ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .internship-card li {
+            margin-bottom: 0.8rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .certificate-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border-top: 4px solid #667eea;
+            position: relative;
+        }
+
+        .certificate-card::before {
+            content: '🏆';
+            position: absolute;
+            top: -20px;
+            right: 30px;
+            font-size: 2.5rem;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .certificate-card .year {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-card h3 {
+            color: #1a202c;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .certificate-card .issuer {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .certificate-card p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        .achievement-card .year {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .achievement-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .achievement-card p {
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .education-timeline::before {
+                left: 15px;
+            }
+
+            .education-item {
+                margin-left: 50px;
+            }
+
+            .education-item::before {
+                left: -50px;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .certificates-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DR</div>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#internships">Internships</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="IMAGES\dharruu.jpeg" alt="Ravipalli Dharani" class="profile-image">
+            
+            <h1>RAVIPALLI DHARANI</h1>
+            <p class="hero-subtitle">Software Engineer • AI/ML Developer</p>
+            <p class="hero-description">Passionate about building innovative solutions with Python, Flask, and Machine Learning. Dedicated to continuous learning and contributing to dynamic teams.</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/dharaniravipalli888" class="btn btn-primary" target="_blank">View GitHub</a>
+                <a href="https://www.linkedin.com/in/dharani-ravipalli" class="btn btn-secondary" target="_blank">LinkedIn Profile</a>
+            </div>
+            <div class="contact-info-hero">
+                <div class="contact-item-hero">
+                    📧 dharani.ravipalli@gmail.com
+                </div>
+                <div class="contact-item-hero">
+                    📱 7207284124
+                </div>
+                <div class="contact-item-hero">
+                    📍 Vizianagaram, AP
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <p class="section-subtitle">Proficient in modern technologies and frameworks for full-stack and AI/ML development</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Frameworks</h3>
+                    <ul>
+                        <li>Flask</li>
+                        <li>TensorFlow</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>ML Libraries</h3>
+                    <ul>
+                        <li>TensorFlow</li>
+                        <li>Scikit-learn</li>
+                        <li>OpenCV</li>
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>MongoDB</li>
+                        <li>Git</li>
+                        <li>VS Code</li>
+                        <li>Google Colab</li>
+                        <li>Jupyter Notebook</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic journey and achievements in technology and AI</p>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <span class="year">2021 - 2025</span>
+                    <h3>Bachelor of Technology (B.Tech) in Artificial Intelligence</h3>
+                    <div class="institution">Kakinada Institute of Engineering and Technology</div>
+                    <div class="grade">CGPA: 7.5/10</div>
+                </div>
+
+                <div class="education-item">
+                    <span class="year">2019 - 2021</span>
+                    <h3>Intermediate Education</h3>
+                    <div class="institution">Sri Chaitanya Junior College, Visakhapatnam</div>
+                    <div class="grade">Percentage: 92% (Distinction)</div>
+                </div>
+
+                <div class="education-item">
+                    <span class="year">2018 - 2019</span>
+                    <h3>Secondary Education</h3>
+                    <div class="institution">Deepthi High School, Vizianagaram</div>
+                    <div class="grade">Percentage: 88%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Innovative solutions combining full-stack development and machine learning</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🐾</div>
+                    <div class="project-content">
+                        <h3>MERN Stack Pet Adoption Platform</h3>
+                        <p>Developed a full-stack web application to connect pet seekers with pet owners and shelters using MongoDB, React.js, and Node.js.</p>
+                        <p>Implemented user registration/login, pet listings, and request management features with real-time updates.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                        <a href="https://github.com/dharaniravipalli888" class="btn btn-primary" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">👋</div>
+                    <div class="project-content">
+                        <h3>Hand Gesture Detection System</h3>
+                        <p>Designed and trained a deep learning model to detect and classify hand gestures in real-time using OpenCV for video frame processing.</p>
+                        <p>Applied CNN to accurately recognize gestures for controlling basic operations like cursor movement and system commands.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">CNN</span>
+                            <span class="tech-tag">TensorFlow</span>
+                        </div>
+                        <a href="https://github.com/dharaniravipalli888" class="btn btn-primary" target="_blank">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">💼</div>
+                    <div class="project-content">
+                        <h3>Easy Consult Platform</h3>
+                        <p>Developed a comprehensive consultation platform using Flask framework with database integration.</p>
+                        <p>Implemented user authentication, appointment scheduling, and consultation management features with responsive web design.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="internships" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience & Internships</h2>
+            <p class="section-subtitle">Professional experience in full-stack development and AI/ML</p>
+            <div class="internships-grid">
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div>
+                            <h3>AI/ML Intern</h3>
+                            <div class="company">TechVision Solutions</div>
+                        </div>
+                        <span class="year">Jun 2023 - Aug 2023</span>
+                    </div>
+                    <ul>
+                        <li>Developed machine learning models for image classification using TensorFlow and CNN</li>
+                        <li>Collaborated with senior engineers to optimize model performance and reduce inference time by 35%</li>
+                        <li>Created data preprocessing pipelines using Python and pandas for diverse datasets</li>
+                        <li>Documented project findings and presented results to technical team</li>
+                    </ul>
+                </div>
+
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div>
+                            <h3>Full Stack Developer Intern</h3>
+                            <div class="company">WebDev Innovations</div>
+                        </div>
+                        <span class="year">Jan 2023 - May 2023</span>
+                    </div>
+                    <ul>
+                        <li>Built responsive web applications using React.js and Node.js</li>
+                        <li>Implemented REST APIs with Express.js and integrated MongoDB databases</li>
+                        <li>Participated in agile development practices with weekly sprint reviews</li>
+                        <li>Fixed bugs and optimized frontend performance, improving load time by 40%</li>
+                    </ul>
+                </div>
+
+                <div class="internship-card">
+                    <div class="internship-header">
+                        <div>
+                            <h3>Python Developer Intern</h3>
+                            <div class="company">DataCore Systems</div>
+                        </div>
+                        <span class="year">Jul 2022 - Sep 2022</span>
+                    </div>
+                    <ul>
+                        <li>Developed Python scripts for data analysis and automation tasks</li>
+                        <li>Worked with SQL databases to extract and transform business data</li>
+                        <li>Created unit tests and documentation for codebase maintenance</li>
+                        <li>Collaborated with cross-functional teams to deliver project requirements on schedule</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            <p class="section-subtitle">Professional certifications and recognized accomplishments</p>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <span class="year">2024</span>
+                    <h3>Advanced Python Programming</h3>
+                    <div class="issuer">Coursera</div>
+                    <p>Comprehensive course covering advanced Python concepts, design patterns, and best practices for software development.</p>
+                </div>
+
+                <div class="certificate-card">
+                    <span class="year">2023</span>
+                    <h3>Machine Learning Specialization</h3>
+                    <div class="issuer">Udemy</div>
+                    <p>In-depth specialization covering supervised learning, unsupervised learning, and neural networks with hands-on projects.</p>
+                </div>
+
+                <div class="certificate-card">
+                    <span class="year">2023</span>
+                    <h3>The Complete Web Developer Bootcamp</h3>
+                    <div class="issuer">Udemy</div>
+                    <p>Full-stack development bootcamp covering HTML, CSS, JavaScript, Node.js, MongoDB, and modern web development practices.</p>
+                </div>
+
+                <div class="certificate-card">
+                    <span class="year">2022</span>
+                    <h3>Git & GitHub Essentials</h3>
+                    <div class="issuer">Codecademy</div>
+                    <p>Mastered version control fundamentals, branching strategies, and collaborative development workflows using Git.</p>
+                </div>
+
+                <div class="certificate-card">
+                    <span class="year">2022</span>
+                    <h3>SQL for Data Analysis</h3>
+                    <div class="issuer">DataCamp</div>
+                    <p>Comprehensive SQL training for data analysis, complex queries, and database design optimization techniques.</p>
+                </div>
+
+                <div class="certificate-card">
+                    <span class="year">2021</span>
+                    <h3>Introduction to Artificial Intelligence</h3>
+                    <div class="issuer">MIT OpenCourseWare</div>
+                    <p>Foundational course in AI concepts, algorithms, and applications in modern technology and business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <p class="section-subtitle">Notable milestones and accomplishments</p>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="year">2024</div>
+                    <h3>Top AI Developer</h3>
+                    <p>Recognized as one of the top AI developers in the organization for outstanding contribution to machine learning projects and innovation in model optimization.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="year">2023</div>
+                    <h3>Hackathon Winner</h3>
+                    <p>Won first prize in the National AI Hackathon with an innovative hand gesture recognition system using deep learning and computer vision.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="year">2023</div>
+                    <h3>Open Source Contributor</h3>
+                    <p>Made significant contributions to multiple open-source projects, with several pull requests merged and recognized by the community.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="year">2022</div>
+                    <h3>Best Student Project</h3>
+                    <p>Awarded recognition for the most innovative student project in AI/ML domain by the Department of Artificial Intelligence.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="year">2022</div>
+                    <h3>Dean's List</h3>
+                    <p>Included in the Dean's List for maintaining excellent academic performance and consistent excellence throughout the semester.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="year">2021</div>
+                    <h3>Scholarship Recipient</h3>
+                    <p>Received merit-based scholarship for outstanding academic achievement and demonstrated aptitude in science and technology subjects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://github.com/dharaniravipalli888" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/dharani-ravipalli" target="_blank">LinkedIn</a>
+                    <a href="https://twitter.com/dharani_ravipalli" target="_blank">Twitter</a>
+                    <a href="mailto:dharani.ravipalli@gmail.com">Email</a>
+                </div>
+                <p>&copy; 2024 Ravipalli Dharani. All rights reserved.</p>
+                <p>Designed with ❤️ | Last Updated: December 2024</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
